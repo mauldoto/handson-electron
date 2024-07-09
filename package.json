@@ -1,0 +1,20 @@
+{
+  "name": "handsonelectron",
+  "version": "0.0.1",
+  "description": "hands on electron for first time",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "desktop",
+    "app"
+  ],
+  "author": "mauldoto",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.1.0"
+  }
+}
