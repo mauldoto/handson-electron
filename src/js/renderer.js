@@ -1,0 +1,2 @@
+const information = document.getElementById('with-global-info')
+information.innerText = `This app is using Chrome (v${versionss.chrome()}), Node.js (v${versionss.node()}), and Electron (v${versionss.electron()})`
