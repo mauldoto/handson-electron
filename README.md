@@ -8,3 +8,7 @@ Hands on Electron js for the first time
 - pada preload.js juga dapat kita gunakan module IPC untuk komunikasi antara process renderer dan main
 - pada proses renderer kita dapat menggunakan ipc.renderer kemudian invoke event yang akan di handle oleh ipc.main
 - sedangkan di proses main kita menggunakan ipc.main untuk menerima event dari renderer
+
+# about IPC
+- digunakan untuk melakukan komunikasi antara context main dan renderer
+- terdapat beberapa cara yaitu, one way (satu arah), two way (dua arah), dan main to renderer (loading...)
