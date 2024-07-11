@@ -11,7 +11,11 @@ contextBridge.exposeInMainWorld('versionss', {
 })
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  setTitle: (title) => ipcRenderer.send('set-title', title)
+  // handle one way ipc
+  setTitle: (title) => ipcRenderer.send('set-title', title),
+
+  // handle two way ipc
+  openFile: () => ipcRenderer.invoke('dialog:openFile'),
 })
 
 // All the Node.js APIs are available in the preload process.

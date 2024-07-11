@@ -1,8 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
+const { handleSetTitle, handleFileOpen } = require('./src/utils/utils')
 const path = require('node:path')
 
 const createWindow = () => {
-    console.log(path.join(__dirname, '/src/js/preload.js'))
     const win = new BrowserWindow({
         width: 800,
         height: 600,
@@ -12,18 +12,21 @@ const createWindow = () => {
         }
     })
 
-    ipcMain.on('set-title', (event, title) => {
-        const webContents = event.sender
-        const winRenderer = BrowserWindow.fromWebContents(webContents)
-        winRenderer.setTitle(title)
-      })
+    win.loadFile('src/views/index.html')
 
-    win.loadFile('views/index.html')
+    win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {
     // harus ready sebelum load windows
     ipcMain.handle('ping', () => 'pong slurrrr');
+
+    // handle one way ipc
+    ipcMain.on('set-title', handleSetTitle)
+
+    // handle two way ipc
+    ipcMain.handle('dialog:openFile', handleFileOpen)
+
     createWindow()
 })
 
