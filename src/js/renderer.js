@@ -7,3 +7,11 @@ const pingPong = async () => {
 }
 
 pingPong()
+
+const setBtn = document.querySelector('#setTitleBtn')
+const inpTitle = document.querySelector('#titleInput')
+
+setBtn.addEventListener('click', () => {
+    const title = inpTitle.value
+    electronAPI.setTitle(title)
+})

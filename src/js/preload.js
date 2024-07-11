@@ -10,6 +10,10 @@ contextBridge.exposeInMainWorld('versionss', {
   ping: () => ipcRenderer.invoke('ping')
 })
 
+contextBridge.exposeInMainWorld('electronAPI', {
+  setTitle: (title) => ipcRenderer.send('set-title', title)
+})
+
 // All the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
 window.addEventListener('DOMContentLoaded', () => {
